@@ -9,24 +9,40 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
+  
+  <div class="topnav">
+				    <h2 id="title">COP 4331</h2>
+          </div>
 
 	<div class = "container-fluid">
 		<div class = "container blue">
-			<div class = "row">
-				<div class = "col-sm">
-				<h1 id="title">COP 4331 LAMP Stack Demo</h1>
-				</div>
+      
+			
+          
+           <div id="description" style="text-align:center; font-weight:bold">
+      <p>Contact One! 🚀</p>
+    </div>
+    </div>
 			</div>
 
-			<div class = "row">
+			<div id="row">
+        
 				<div id="loginDiv">
-					<span id="inner-title">PLEASE LOG IN</span>
-					<input type="text" id="loginName" placeholder="Username" /><br />
-					<input type="password" id="loginPassword" placeholder="Password"/><br />
-					<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
+					<span id="inner-title">Log in to your account</span><br/>
+          <label id="label-text">Username</label><br/>
+					<input type="text" id="loginName" placeholder="Enter Username" /><br />
+          <label id="label-text">Password</label><br/>
+					<input type="password" id="loginPassword" placeholder="Enter Password"/><br />
+          <hr size="1" width="90%" color="grey">  
+					<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Log In </button>
 					<span id="loginResult"></span>
+          <p id="label-text" style="text-align:center">Don't have an account? <a href="signup.html">Sign Up</a></p>
 				</div>
-			</div>
+      </div>
+      
+      
+    </div>
+    
 
 
 			<div class = "row">
@@ -38,7 +54,7 @@
 			<div class = "row">
 			</div>
 		</div>
-	</div>
+    
 
 </body>
 </html>
