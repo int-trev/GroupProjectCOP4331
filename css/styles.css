@@ -108,6 +108,34 @@ a.hover
 {
 	font-size: 30px;
 }
+#firstNameText
+{
+  font-size: 30px;
+}
+#lastNameText
+{
+  font-size: 30px;
+}
+#emailText
+{
+  font-size: 30px;
+}
+#phoneNumberText
+{
+  font-size: 30px;
+}
+#postalCodeText
+{
+  font-size: 30px;
+}
+#countryText
+{
+  font-size: 30px;
+}
+#contactAddResult
+{
+  font-size: 30px;
+}
 #searchText
 {
 	font-size: 30px;
