@@ -4,7 +4,7 @@
 	
 	$id = 0;
 	$Login = "TheBeast";
-	$Password = "A3B@th?yg";
+	$Password = "WeLoveCOP4331";
 
 	$conn = new mysqli("localhost", $Login, $Password, "FIRSTCONTACTS"); 	
 	if( $conn->connect_error )
@@ -19,15 +19,15 @@
 		$result = $stmt->get_result();
 
 
-        if ($conn->query($result) === TRUE) {
+        /*if ($conn->query($result) === TRUE) {
 			sendResultInfoAsJson($result);
             echo "New record created successfully";
         } else {
             echo "Error: " . $result . "<br>" . $conn->error;
-        }
-		
-        $stmt->close();
+        }*/
+		$stmt->close();
 		$conn->close();
+		sendResultInfoAsJson($result);
 	}
 	
 	function getRequestInfo()
