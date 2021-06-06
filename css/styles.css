@@ -152,6 +152,11 @@ a.hover
   color: grey;
 }
 
+#listBoxStuff
+{
+  font-size: 20px;
+}
+
 
 input[type="text"],input[type="password"]{
     border: none;
