@@ -130,7 +130,6 @@ function doSignUp()
 function onStartUp()
 {
 	readCookie();
-	doDisplayAll();
 }
 
 
