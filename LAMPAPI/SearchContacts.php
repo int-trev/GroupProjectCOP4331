@@ -5,7 +5,7 @@
 	$searchResults = "";
 	$searchCount = 0;
 
-	$conn = new mysqli("localhost", "TheBeast", "we love", "FIRSTCONTACTS");
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "FIRSTCONTACTS");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
@@ -15,7 +15,7 @@
 		$stmt = $conn->prepare("select * from Contacts where FName like ? and LName like ? and UserID=?");
 		$FName = "%" . $inData["FName"] . "%";
 		$LName = "%" . $inData["LName"] . "%";
-		$stmt->bind_param("ssi", $FName $LName, $inData["userId"]);
+		$stmt->bind_param("ssi", $FName, $LName, $inData["userId"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -27,7 +27,8 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$json= '{"FName" : "' . $row["FName"] . '", "LName" : "' . $row[LName] . '", "ID" : ' . $row[ID] . ', "postalCode" : "' . $row[postalCode] . '", "Email" : "' . $row[Email] . '", "phoneNumber" : "' . $row[phoneNumber] . '", "country" : "' . $row[country] . '"}';
+			$searchResults .= $json;
 		}
 		
 		if( $searchCount == 0 )

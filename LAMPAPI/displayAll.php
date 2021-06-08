@@ -25,7 +25,8 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["FName"] .' ' . $row[LName] . ' ' . $row[ID] . ' ' . $row[postalCode] . ' ' . $row[Email] . ' ' . $row[phoneNumber] . ' ' . $row[country] . '"';
+			$json= '{"FName" : "' . $row["FName"] . '", "LName" : "' . $row[LName] . '", "ID" : ' . $row[ID] . ', "postalCode" : "' . $row[postalCode] . '", "Email" : "' . $row[Email] . '", "phoneNumber" : "' . $row[phoneNumber] . '", "country" : "' . $row[country] . '"}';
+			$searchResults .= $json;//'"' . $row["FName"] .' ' . $row[LName] . ' ' . $row[ID] . ' ' . $row[postalCode] . ' ' . $row[Email] . ' ' . $row[phoneNumber] . '"';
 		}
 		
 		if( $searchCount == 0 )
