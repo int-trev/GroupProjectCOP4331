@@ -1,43 +1,45 @@
-openapi: 3.0.0
+swagger: "2.0"
 info:
   title: API for our contacts project
   description: stuff
   version: 1.0.0
-servers:
-  - url: http:192.241.153.6
-    description: hi
-  
+# host: firstcontacts.xyz
+# basePath: /LAMPAPI
+# schemes:
+#   - http
 paths:
-  /LAMPAPI/Login.php:
+  /Login.php:
     post:
-      summary: logs in
-      description: logs in
+      summary: returns the userId of the response, greater than 0 if successfull
       parameters:
-        - name: login
-          in: query
-          description: username
-          required: true
+        - in: body
+          name: user
+          description: the user getting inputted
           schema:
-            type: string
-        - name: password
-          in: query
-          description: password
-          required: true
-          schema:
-            type: string
+            type: object
+            required:
+              - login
+              - password
+            properties:
+              login:
+                type: string
+              password:
+                type: string
       responses:
-        '200':
-          description: ok
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  firstname:
-                    type: string
-                  lastname:
-                    type: string
-        default:
-          description: error
+        200:
+          description: we good
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              firstName:
+                type: string
+              lastName:
+                type: string
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /GROUP13OP/FirstContacts/1.0.0
+schemes:
+ - https
+ - http

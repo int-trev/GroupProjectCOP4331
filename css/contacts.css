@@ -19,10 +19,29 @@ body {
   
   #searchDiv {
     display: flex;
-    align-items: right;
-    margin-left: 74%;
+    margin-top: 1%;
     width: 20%;
   }
+
+#searchButton {
+  font-weight: bold;
+  border: none;
+  margin-left: 4px;
+  color: white;
+  background-color: #aa57f2;
+  border-radius: 5px;
+}
+
+#resetButton {
+  font-weight: bold;
+  margin-left: 4px;
+  border: none;
+  color: white;
+  background-color: #6dd67f;
+   border-radius: 5px;
+}
+
+
   
   #row {
     display: flex;
@@ -39,11 +58,15 @@ body {
   #addButton {
     border-radius: 5px;
     border: none;
-    margin-left: 20px;
+    margin-left: 15px;
     background-color: #4285F4;
     color: white;
   }
   
   #addButton:hover {
     opacity: 50%;
+  }
+
+  table, th, td, tr {
+    border: 1px solid black;
   }

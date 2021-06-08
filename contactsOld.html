@@ -1,13 +1,13 @@
 <html>
 <head>
 	<title>COP 4331 LAMP Stack Demo</title>
+	<!--<script type="text/javascript" src="js/md5.js"></script>-->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/actualCode.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href = "css/contacts.css" rel = "stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body onload = onStartUp()>
   
@@ -18,64 +18,55 @@
 	<div class = "container-fluid">
 		<div class = "container blue">
       
-      <!--For table, have info from card as DEFAULT VALUES and when update button pressed, the info sends to API-->
-			<!--FN, LN, Email, Phone Number...editable text fields-->
-			<!--Update...a button-->
-      
-      			<div id = "searchDiv">
-					<label id="label-text">First</label><br/>
-					<input type="text" id="firstNameSearchText" placeholder="Enter First Name"/><br />
-					<label id="label-text">Last</label><br/>
-					<input type="text" id="lastNameSearchText" placeholder="Enter Last Name"/><br />
-        
-					<button type="button" id="searchButton" class="buttons" onclick="doSearch();">Search</button>
-        
-					<button type="button" id="resetButton" class="buttons" onclick="doDisplayAll();"> Reset </button>
-				</div>
+			
+          
+           <div id="description" style="text-align:center; font-weight:bold">
+      			<p>Contact One! 🚀</p>
+    		</div>
 
-				<div id ="row">
+			<div id="row">
+        
+				<div id="loginDiv">
+					<span id="inner-title">Sign up</span><br/>
 					<span id = "userName"></span><br/>
-				</div>
-      
-
-				<div id="row">
-        
           			<label id="label-text">First Name</label><br/>
 						<input type="text" id="firstNameText" placeholder="First Name" /><br />
           			<label id="label-text">Last Name</label><br/>
 						<input type="text" id="lastNameText" placeholder="Last Name"/><br />
 		  			<label id="label-text">Email</label><br/>
 						<input type="text" id="emailText" placeholder="Email" /><br />
-          		</div>
-				<div id = "row">
-						<label id="label-text">Phone Number</label><br/>
+          			<label id="label-text">Phone Number</label><br/>
 						<input type="text" id="phoneNumberText" placeholder="Phone Number"/><br />		
 		  			<label id="label-text">PostalCode</label><br/>
 						<input type="text" id="postalCodeText" placeholder="Postal Code" /><br />
           			<label id="label-text">Country</label><br/>
 						<input type="text" id="countryText" placeholder="Country"/><br />
 
-				</div>
-
-				<div id = "row">
-					<button type="button" id="addButton" class="buttons" onclick="addContact();"> Add Contact </button>
-				</div>
-
-				<div id = "row">
+				
+          			<hr size="1" width="90%" color="grey">  
+					<button type="button" id="loginButton" class="buttons" onclick="addContact();"> Add Contact </button>
 					<span id="contactAddResult"></span>
 				</div>
 
-				<div id = "row">
-					<div id = "emptyThis">
-						
-					</div>
-				</div>
-
-				<div id = "row">
-					<br>
-				</div>
-
 			</div>
+		
+			<!--For table, have info from card as DEFAULT VALUES and when update button pressed, the info sends to API-->
+			<!--FN, LN, Email, Phone Number...editable text fields-->
+			<!--Update...a button-->
+			
+				<div id = "searchDiv">
+					<hr size="1" width="90%" color="grey">
+					<label id="label-text">First Name</label><br/>
+					<input type="text" id="firstNameSearchText" placeholder="Enter First Name Search"/><br />
+					<label id="label-text">Last Name</label><br/>
+					<input type="text" id="lastNameSearchText" placeholder="Enter Last Name Search"/><br />
+					<button type="button" id="loginButton" class="buttons" onclick="doSearch();"> Search </button>
+					<button type="button" id="loginButton" class="buttons" onclick="doDisplayAll();"> Reset </button>
+				</div>	
+
+				<div id = "emptyThis">
+						
+				</div>
 
 		</div>
 

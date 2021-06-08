@@ -55,7 +55,7 @@ input[type="text"],input[type="password"]{
     margin-top: 1%;
     margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 10px;
+    font-size: 30px;
     background-color: #e8e8e8;
     padding: 20px 20px;
 }
@@ -93,6 +93,7 @@ input[type="text"],input[type="password"]{
     color: #F1DCC9;
     opacity: 50%;
 }
+
 
 a
 {

@@ -1,4 +1,4 @@
-var urlBase = 'http://192.241.153.6/LAMPAPI';
+var urlBase = 'http://firstcontacts.xyz//LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
@@ -16,12 +16,13 @@ function doLogin()
 	
 	var login = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
-	//	var hash = md5( password );
+	var hash = md5( password );
+	console.log(hash);
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+	//var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -93,8 +94,10 @@ function doSignUp()
 	var newLastName = document.getElementById("signUpLastName").value;
 	var newUsername = document.getElementById("signUpUsername").value;
 	var newPassword = document.getElementById("signUpPassword").value;
+	var hash = md5( newPassword );
+	console.log(hash);
 	  
-	var jsonPayload = '{"FirstName" : "'+ newFirstName +'" , "LastName" : "'+ newLastName + '" , "login" : "' + newUsername + '" , "password" : "'+ newPassword +'"}';
+	var jsonPayload = '{"FirstName" : "'+ newFirstName +'" , "LastName" : "'+ newLastName + '" , "login" : "' + newUsername + '" , "password" : "'+ hash +'"}';
 	
 	var url = urlBase + '/AddNewUser.' + extension;
 	
@@ -138,7 +141,7 @@ function createTable(notParsedJson)
 	var empty= document.getElementById("emptyThis");
 	if(displayJsonObject.results == null || displayJsonObject.results.length == 0)
 	{
-		var emptyString = document.createTextNode("No Contacts for User. You should make some.");
+		var emptyString = document.createTextNode("No Contacts for User.");
 		empty.appendChild(emptyString);
 	}
 	else
@@ -177,7 +180,17 @@ function createTable(notParsedJson)
 		document.getElementById("myTr").appendChild(th);
 
 		th = document.createElement("TH");
-		text = document.createTextNode("Select Box");
+		text = document.createTextNode("Postal Code");
+		th.appendChild(text);
+		document.getElementById("myTr").appendChild(th);
+
+		th = document.createElement("TH");
+		text = document.createTextNode("Country");
+		th.appendChild(text);
+		document.getElementById("myTr").appendChild(th);
+
+		th = document.createElement("TH");
+		text = document.createTextNode("Select Replacement Value (in order)");
 		th.appendChild(text);
 		document.getElementById("myTr").appendChild(th);
 
@@ -225,18 +238,28 @@ function createTable(notParsedJson)
 			document.getElementById(setter).appendChild(th);
 
 			th = document.createElement("TD");
+			text = document.createTextNode(displayJsonObject.results[i].postalCode);
+			th.appendChild(text);
+			document.getElementById(setter).appendChild(th);
+
+			th = document.createElement("TD");
+			text = document.createTextNode(displayJsonObject.results[i].country);
+			th.appendChild(text);
+			document.getElementById(setter).appendChild(th);
+
+			th = document.createElement("TD");
 			text = document.createElement("SELECT");
 			var newOption1 = new Option(displayJsonObject.results[i].FName, "FName");
 			var newOption2 = new Option(displayJsonObject.results[i].LName, "LName");
-			var newOption4 = new Option(displayJsonObject.results[i].postalCode, "postalCode");
 			var newOption5 = new Option(displayJsonObject.results[i].Email, "Email");
 			var newOption6 = new Option(displayJsonObject.results[i].phoneNumber, "phoneNumber");
+			var newOption4 = new Option(displayJsonObject.results[i].postalCode, "postalCode");
 			var newOption7 = new Option(displayJsonObject.results[i].country, "country");
 			text.appendChild(newOption1);
 			text.appendChild(newOption2);
-			text.appendChild(newOption4);
 			text.appendChild(newOption5);
 			text.appendChild(newOption6);
+			text.appendChild(newOption4);
 			text.appendChild(newOption7);
 			var selectID = "selectComponent" + i;
 			text.setAttribute("id",selectID);
@@ -252,8 +275,7 @@ function createTable(notParsedJson)
 			document.getElementById(setter).appendChild(th);
 
 			th = document.createElement("TD");
-			text = document.createElement("INPUT");
-			text.setAttribute("type","button");
+			text = document.createElement("BUTTON");
 			text.innerHTML = "UPDATE";
 			text.setAttribute("class","update");
 			text.setAttribute("id", "update" + i);
@@ -312,7 +334,6 @@ function readCookie()
 	else
 	{
 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
-		//console.log("We good bruh");
 	}
 }
 
@@ -383,10 +404,11 @@ function doSearch()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				text = JSON.parse(xhr.responseText);
-				if(text.error == "")
+				/*if(text.error == "")
 				{
 					createTable(xhr.responseText);
-				}	
+				}*/
+				createTable(xhr.responseText);
 			}
 		};
 		xhr.send(jsonPayload);
