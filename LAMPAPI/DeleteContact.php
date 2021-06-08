@@ -13,26 +13,16 @@
 	}
 	else
 	{
-	$stmt =$conn->prepare("SELECT * FROM Users WHERE Login=? AND Password=?");
-	$stmt->bind_param("ss", $inData["login"], $inData["password"]);
-	$stmt->execute();
-	$stmt->store_result();
-	$stmt->num_rows();
-	
-	if($stmt->num_rows() <= 0){
-
-		$stmt = $conn->prepare("INSERT INTO Users (Login,Password,FirstName, LastName) VALUES (?,?,?,?)");
-		$stmt->bind_param("ssss", $inData["login"], $inData["password"], $inData["FirstName"], $inData["LastName"]);
+		$stmt = $conn->prepare("DELETE FROM Contacts WHERE ID = ?");
+		$stmt->bind_param("i", $inData["id"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-        $stmt->close();
+		
+
+		$stmt->close();
 		$conn->close();
-	}else{
-	$conn->close();
 	}
-	}
-	$conn->close();
 	
 	function getRequestInfo()
 	{
@@ -47,7 +37,7 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
@@ -58,3 +48,4 @@
 	}
 	
 ?>
+
