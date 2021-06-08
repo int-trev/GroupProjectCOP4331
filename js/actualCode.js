@@ -179,7 +179,7 @@ function createTable(notParsedJson)
 		th.appendChild(text);
 		document.getElementById("myTr").appendChild(th);
 
-		th = document.createElement("TH");
+		/*th = document.createElement("TH");
 		text = document.createTextNode("Postal Code");
 		th.appendChild(text);
 		document.getElementById("myTr").appendChild(th);
@@ -187,7 +187,7 @@ function createTable(notParsedJson)
 		th = document.createElement("TH");
 		text = document.createTextNode("Country");
 		th.appendChild(text);
-		document.getElementById("myTr").appendChild(th);
+		document.getElementById("myTr").appendChild(th);*/
 
 		th = document.createElement("TH");
 		text = document.createTextNode("Select Replacement Value (in order)");
@@ -237,7 +237,7 @@ function createTable(notParsedJson)
 			th.appendChild(text);
 			document.getElementById(setter).appendChild(th);
 
-			th = document.createElement("TD");
+			/*th = document.createElement("TD");
 			text = document.createTextNode(displayJsonObject.results[i].postalCode);
 			th.appendChild(text);
 			document.getElementById(setter).appendChild(th);
@@ -245,7 +245,7 @@ function createTable(notParsedJson)
 			th = document.createElement("TD");
 			text = document.createTextNode(displayJsonObject.results[i].country);
 			th.appendChild(text);
-			document.getElementById(setter).appendChild(th);
+			document.getElementById(setter).appendChild(th);*/
 
 			th = document.createElement("TD");
 			text = document.createElement("SELECT");
@@ -253,14 +253,14 @@ function createTable(notParsedJson)
 			var newOption2 = new Option(displayJsonObject.results[i].LName, "LName");
 			var newOption5 = new Option(displayJsonObject.results[i].Email, "Email");
 			var newOption6 = new Option(displayJsonObject.results[i].phoneNumber, "phoneNumber");
-			var newOption4 = new Option(displayJsonObject.results[i].postalCode, "postalCode");
-			var newOption7 = new Option(displayJsonObject.results[i].country, "country");
+			//var newOption4 = new Option(displayJsonObject.results[i].postalCode, "postalCode");
+			//var newOption7 = new Option(displayJsonObject.results[i].country, "country");
 			text.appendChild(newOption1);
 			text.appendChild(newOption2);
 			text.appendChild(newOption5);
 			text.appendChild(newOption6);
-			text.appendChild(newOption4);
-			text.appendChild(newOption7);
+			//text.appendChild(newOption4);
+			//text.appendChild(newOption7);
 			var selectID = "selectComponent" + i;
 			text.setAttribute("id",selectID);
 			th.appendChild(text);
